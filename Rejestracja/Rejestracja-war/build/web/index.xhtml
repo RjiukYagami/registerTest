@@ -1,0 +1,25 @@
+<ui:composition
+      template="/WEB-INF/mainTemplate.xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:define name="title">Rejestracja</ui:define>
+    
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="name" value="Nazwa:" style="font-weight:bold" />
+                <p:inputText id="name" value="#{registerController.name}" />
+            </h:panelGrid>
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="password" value="Hasło:" style="font-weight:bold" />
+                <p:password id="password" value="#{registerController.password}" />
+            </h:panelGrid>
+            <p:commandButton value="Zarejestruj" icon="ui-icon-check" actionListener="#{registerController.rejestruj()}" update="display"/>
+            <br/>
+            <h:outputText id="display" value="#{registerController.info}" />
+        </h:form>
+    </ui:define>
+</ui:composition>
